@@ -1,6 +1,16 @@
+/**
+ * Class Database Pesanan here.
+ *
+ * @author Geraldo Martua S
+ * @version 1 March 2018
+ */
+
+// Kelas ini digunakan untuk memasukkan input Database Pesanan
+
 public class DatabasePesanan
 {
-    // instance variables - replace the example below with your own
+    // Input Instance Variable 
+    // Untuk mendeklarasikan variable 
     private String[] list_pesanan;
     public boolean addPesanan(Pesanan baru){
         return false;

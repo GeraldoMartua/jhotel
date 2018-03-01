@@ -1,13 +1,16 @@
-
 /**
- * Write a description of class Pesanan here.
+ * Class Pesanan here.
  *
  * @author Geraldo Martua S
- * @version 22 February 2018
+ * @version 1 March 2018
  */
+
+// Kelas ini digunakan untuk memasukkan input Pesanan
+
 public class Pesanan
 {
-    // instance variables - replace the example below with your own
+    // Input Instance Variable 
+    // Untuk mendeklarasikan variable 
     private double biaya;
     private Customer pelanggan;
     private String nama_pelanggan;
@@ -15,26 +18,94 @@ public class Pesanan
     private boolean isDiproses;
     private boolean isSelesai;
 
-    public Pesanan(){
+    /**
+     * Method Pesanan
+     * 
+     * @param biaya         data biaya
+     * @param pelanggan     data pelanggan
+     */
+    public Pesanan(double biaya, Customer pelanggan){
+        this.biaya = biaya;
+        this.pelanggan = pelanggan;
     }
+    
+    /**
+     * Method Biaya
+     * 
+     * @return biaya - ke nilai biaya
+     */
     public double getBiaya(){
-        return 0;
+        return biaya;
     }
+    
+    /**
+     * Method Pelanggan
+     * 
+     * @return pelanggan - ke nilai pelanggan
+     */
     public Customer getPelanggan(){
-        return null;
+        return pelanggan;
     }
+    
+    /**
+     * Method StatusDipesan
+     * 
+     * @return Diproses - ke nilai Diproses
+     */
     public boolean getStatusDipesan(){
-        return false;
+        return isDiproses;
     }
+    
+    /**
+     * Method StatusSelesai
+     * 
+     * @return Selesai - ke nilai Selesai
+     */
     public boolean getStatusSelesai(){
-        return false;
+        return isSelesai;
     }
+    
+    /**
+     * Method Biaya
+     * 
+     * @param biaya - nilai yang didapat dari biaya
+     */
     public void setBiaya(double biaya){
+        this.biaya = biaya;
     }
+    
+    /**
+     * Method Pelanggan
+     * 
+     * @param baru - nilai yang didapat dari customer
+     */
     public void setPelanggan(Customer baru){
+        pelanggan = baru;
     }
+    
+    /**
+     * Method Biaya
+     * 
+     * @param biaya - nilai yang didapat dari biaya
+     */
     public void setStatusDiproses(boolean diproses){
+        isDiproses = diproses;
     }
+    
+    /**
+     * Method Biaya
+     * 
+     * @param biaya - nilai yang didapat dari biaya
+     */
     public void setStatusSelesai(boolean diproses){
+        isSelesai = diproses;
+    }
+    
+    /**
+     * Method Biaya
+     * 
+     * @param biaya - nilai yang didapat dari biaya
+     */
+    public void printData(){
     }
 }

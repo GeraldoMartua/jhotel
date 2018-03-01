@@ -1,19 +1,35 @@
+/**
+ * Class Customer here.
+ *
+ * @author Geraldo Martua S
+ * @version 1 March 2018
+ */
+
+// Kelas ini digunakan untuk memasukkan input Customer
+
 public class Customer
 {
-    // instance variables - replace the example below with your own
+    // Input Instance Variable 
+    // Untuk mendeklarasikan variable 
     protected int id;
     protected String nama;
     
     public void Customer(int id, String nama){
+        this.id = id;
+        this.nama = nama;
     }
     public int getID(){
-        return 0;
+        return id;
     }
     public String getNama(){
-        return null;
+        return nama;
     }
-    public void SetID(){
+    public void SetID(int id){
+        this.id = id;
     }
     public void SetNama(String nama){
+        this.nama = nama;
+    }
+    public void printData (){
     }
 }
