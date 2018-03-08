@@ -41,5 +41,6 @@ public class Hotel
         this.lokasi = lokasi;
     }
     public void printData(){
+        System.out.println(nama);
     }
 }

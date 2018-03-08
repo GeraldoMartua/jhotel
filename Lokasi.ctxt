@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Lokasi
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Lokasi\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Class\ Lokasi\ here.\r\n\r\n\ @author\ Geraldo\ Martua\ S\r\n\ @version\ 1\ March\ 2018\r\n
 comment1.params=x_coord\ y_coord\ deskripsiLokasi
 comment1.target=Lokasi(float,\ float,\ java.lang.String)
 comment2.params=

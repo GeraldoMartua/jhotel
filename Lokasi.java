@@ -39,5 +39,6 @@ public class Lokasi
         deskripsiLokasi = deskripsi;
     }
     public void printData(){
+        System.out.println(deskripsiLokasi);
     }
 }

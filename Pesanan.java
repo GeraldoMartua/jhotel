@@ -17,6 +17,7 @@ public class Pesanan
     private String jenis_kamar;
     private boolean isDiproses;
     private boolean isSelesai;
+    private Room kamar;
 
     /**
      * Method Pesanan
@@ -32,7 +33,7 @@ public class Pesanan
     /**
      * Method Biaya
      * 
-     * @return biaya - ke nilai biaya
+     * @return biaya ke nilai biaya
      */
     public double getBiaya(){
         return biaya;
@@ -41,7 +42,7 @@ public class Pesanan
     /**
      * Method Pelanggan
      * 
-     * @return pelanggan - ke nilai pelanggan
+     * @return pelanggan ke nilai pelanggan
      */
     public Customer getPelanggan(){
         return pelanggan;
@@ -50,7 +51,7 @@ public class Pesanan
     /**
      * Method StatusDipesan
      * 
-     * @return Diproses - ke nilai Diproses
+     * @return Diproses ke nilai Diproses
      */
     public boolean getStatusDipesan(){
         return isDiproses;
@@ -59,16 +60,25 @@ public class Pesanan
     /**
      * Method StatusSelesai
      * 
-     * @return Selesai - ke nilai Selesai
+     * @return Selesai ke nilai Selesai
      */
     public boolean getStatusSelesai(){
         return isSelesai;
     }
     
     /**
+     * Method Room
+     * 
+     * @return kamar ke nilai Kamar
+     */
+    public Room getRoom(){
+        return kamar;
+    }
+    
+    /**
      * Method Biaya
      * 
-     * @param biaya - nilai yang didapat dari biaya
+     * @param biaya nilai yang didapat dari biaya
      */
     public void setBiaya(double biaya){
         this.biaya = biaya;
@@ -77,7 +87,7 @@ public class Pesanan
     /**
      * Method Pelanggan
      * 
-     * @param baru - nilai yang didapat dari customer
+     * @param pelanggan untuk memasukkan pelanggan baru
      */
     public void setPelanggan(Customer baru){
         pelanggan = baru;
@@ -86,7 +96,7 @@ public class Pesanan
     /**
      * Method Biaya
      * 
-     * @param biaya - nilai yang didapat dari biaya
+     * @param diproses untuk memproses status
      */
     public void setStatusDiproses(boolean diproses){
         isDiproses = diproses;
@@ -95,17 +105,26 @@ public class Pesanan
     /**
      * Method Biaya
      * 
-     * @param biaya - nilai yang didapat dari biaya
+     * @param biaya nilai yang didapat dari biaya
      */
     public void setStatusSelesai(boolean diproses){
         isSelesai = diproses;
     }
     
     /**
+     * Method StatusSelesai
+     * 
+     * @return Selesai ke nilai Selesai
+     */
+    public void setRoom(Room kamar){
+    }
+    
+    /**
      * Method Biaya
      * 
-     * @param biaya - nilai yang didapat dari biaya
+     * untuk menampilkan biaya 
      */
     public void printData(){
+        System.out.println(biaya);
     }
 }

@@ -2,7 +2,7 @@
 comment0.target=Customer
 comment0.text=\r\n\ Class\ Customer\ here.\r\n\r\n\ @author\ Geraldo\ Martua\ S\r\n\ @version\ 1\ March\ 2018\r\n
 comment1.params=id\ nama
-comment1.target=void\ Customer(int,\ java.lang.String)
+comment1.target=Customer(int,\ java.lang.String)
 comment2.params=
 comment2.target=int\ getID()
 comment3.params=

@@ -14,7 +14,7 @@ public class Customer
     protected int id;
     protected String nama;
     
-    public void Customer(int id, String nama){
+    public Customer(int id, String nama){
         this.id = id;
         this.nama = nama;
     }
@@ -31,5 +31,6 @@ public class Customer
         this.nama = nama;
     }
     public void printData (){
+        System.out.println(nama);
     }
 }
