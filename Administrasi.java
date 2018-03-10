@@ -46,7 +46,6 @@ public class Administrasi
         pesan.setRoom(null);
     }
     public void pesananSelesai(Pesanan pesan){
-        roomLepasPesanan(pesan.getRoom());
         pesan.setStatusSelesai(true);
         pesan.setStatusDiproses(false);
         pesan.setRoom(null);

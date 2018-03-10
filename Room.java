@@ -19,7 +19,16 @@ public class Room{
     /**
      * Constructor for objects of class Room
      */
-    public Room(){
+    public Room(Hotel hotel, String nomor_kamar, boolean isAvailable, 
+    Customer customer, double dailytariff, StatusKamar status_kamar)
+    {
+        this.hotel=hotel;
+        this.nomor_kamar=nomor_kamar;
+        this.isAvailable=isAvailable;
+        this.customer=customer;
+        dailyTariff=dailytariff;
+        this.status_kamar=status_kamar;
+        
     }
 
     /**
@@ -53,21 +62,35 @@ public class Room{
         return pesan;
     }
     public void setHoter(Hotel hotel){
+        this.hotel=hotel;
     }
     public void setID(int ID){
+        this.id=id;
     }
     public void setNomorKamar(String nomor_kamar){
+        this.nomor_kamar=nomor_kamar;
     }
     public void setStatusAvailable(boolean isAvailable){
+        this.isAvailable=isAvailable;
     }
     public void setCustomer(Customer customer){
+        this.customer=customer;
     }
     public void setDailyTariff(double dailyTariff){
+        dailyTariff=dailyTariff;
     }
     public void setStatusKamar(StatusKamar status_kamar){
+        this.status_kamar=status_kamar;
     }
     public void setPesanan(Pesanan pesan){
+        this.pesan=pesan;
     }
     public void printData(){
+        System.out.println("Nama hotel :" + hotel.getNama());
+        System.out.println("Nomor Kamar :" + nomor_kamar);
+        System.out.println("Tersedia :" + isAvailable);
+        System.out.println("Pelanggan :" + customer.getNama());
+        System.out.println("Harga :" + dailyTariff);
+        System.out.println("Status Kamar :" + status_kamar);
     }
 }

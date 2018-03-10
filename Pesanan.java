@@ -117,6 +117,7 @@ public class Pesanan
      * @return Selesai ke nilai Selesai
      */
     public void setRoom(Room kamar){
+        this.kamar=kamar;
     }
     
     /**
@@ -125,6 +126,10 @@ public class Pesanan
      * untuk menampilkan biaya 
      */
     public void printData(){
-        System.out.println(biaya);
+        System.out.println("Pesanan");
+        System.out.println("Nama pelanggan :"+ nama_pelanggan);
+        System.out.println("Tipe kamar :"+ jenis_kamar);
+        System.out.println("Status layanan diproses :"+ isDiproses);
+        System.out.println("Status layanan selesai :"+ isSelesai);
     }
 }

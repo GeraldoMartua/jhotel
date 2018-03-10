@@ -18,9 +18,9 @@ public class Hotel
      * Constructor for objects of class Hotel
      */
     public Hotel(String nama, Lokasi lokasi, int bintang){
-        this.nama = nama;
-        this.lokasi = lokasi;
-        this.bintang = bintang;
+        this.nama=nama;
+        this.lokasi=lokasi;
+        this.bintang=bintang;
     }
     public int getBintang(){
         return bintang;
@@ -41,6 +41,9 @@ public class Hotel
         this.lokasi = lokasi;
     }
     public void printData(){
-        System.out.println(nama);
+        System.out.println("Hotel");
+        System.out.println("Nama hotel :" + nama);
+        System.out.println("Lokasi :" + lokasi.getDeskripsi());
+        System.out.println("Bintang :" + bintang);
     }
 }
