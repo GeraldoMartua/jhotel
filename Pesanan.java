@@ -12,9 +12,8 @@ public class Pesanan
     // Input Instance Variable 
     // Untuk mendeklarasikan variable 
     private double biaya;
+    private double jumlahHari;
     private Customer pelanggan;
-    private String nama_pelanggan;
-    private String jenis_kamar;
     private boolean isDiproses;
     private boolean isSelesai;
     private Room kamar;
@@ -25,9 +24,11 @@ public class Pesanan
      * @param biaya         data biaya
      * @param pelanggan     data pelanggan
      */
-    public Pesanan(double biaya, Customer pelanggan){
+    public Pesanan(double jumlahHari, Customer pelanggan, Room kamar){
+        this.jumlahHari = jumlahHari;
         this.biaya = biaya;
         this.pelanggan = pelanggan;
+        biaya = kamar.getDailyTariff() * jumlahHari;
     }
     
     /**
@@ -38,7 +39,9 @@ public class Pesanan
     public double getBiaya(){
         return biaya;
     }
-    
+    public double getJumlahHari(){
+        return jumlahHari;
+    }
     /**
      * Method Pelanggan
      * 
@@ -80,17 +83,20 @@ public class Pesanan
      * 
      * @param biaya nilai yang didapat dari biaya
      */
-    public void setBiaya(double biaya){
-        this.biaya = biaya;
+    public void setBiaya(){
+        biaya = kamar.getDailyTariff() * jumlahHari;
     }
     
+    public void setJumlahHari(double jumlahHari){
+        this.jumlahHari = jumlahHari;
+    }
     /**
      * Method Pelanggan
      * 
      * @param pelanggan untuk memasukkan pelanggan baru
      */
-    public void setPelanggan(Customer baru){
-        pelanggan = baru;
+    public void setPelanggan(Customer pelanggan){
+        this.pelanggan = pelanggan;
     }
     
     /**
@@ -127,9 +133,10 @@ public class Pesanan
      */
     public void printData(){
         System.out.println("Pesanan");
-        System.out.println("Nama pelanggan :"+ nama_pelanggan);
-        System.out.println("Tipe kamar :"+ jenis_kamar);
         System.out.println("Status layanan diproses :"+ isDiproses);
         System.out.println("Status layanan selesai :"+ isSelesai);
+        System.out.println("Nama pelanggan :"+ pelanggan.getNama());
+        System.out.println("Jumlah Hari :"+ jumlahHari);
+        System.out.println("Jumlah Biaya :"+ biaya);
     }
 }

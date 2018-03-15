@@ -5,28 +5,24 @@
  * @author Geraldo Martua S
  * @version 8 March 2018
  */
-public class Room{
+public abstract class Room{
+    
     // instance variables - replace the example below with your own
     private Hotel hotel;
-    private int id;
     private String nomor_kamar;
     private boolean isAvailable;
-    private Customer customer;
-    private double dailyTariff;
+    protected double dailyTariff;
     private StatusKamar status_kamar;
     private Pesanan pesan;
 
     /**
      * Constructor for objects of class Room
      */
-    public Room(Hotel hotel, String nomor_kamar, boolean isAvailable, 
-    Customer customer, double dailytariff, StatusKamar status_kamar)
+    public Room(Hotel hotel, String nomor_kamar, boolean isAvailable, StatusKamar status_kamar)
     {
         this.hotel=hotel;
         this.nomor_kamar=nomor_kamar;
         this.isAvailable=isAvailable;
-        this.customer=customer;
-        dailyTariff=dailytariff;
         this.status_kamar=status_kamar;
         
     }
@@ -40,17 +36,11 @@ public class Room{
     public Hotel getHotel(){
         return hotel;
     }
-    public int getID(){
-        return id;
-    }
     public String getNomorKamar(){
         return nomor_kamar;
     }
     public boolean getStatusAvailable(){
         return isAvailable;
-    }
-    public Customer getCustomer(){
-        return customer;
     }
     public double getDailyTariff(){
         return dailyTariff;
@@ -61,11 +51,9 @@ public class Room{
     public Pesanan getPesanan(){
         return pesan;
     }
-    public void setHoter(Hotel hotel){
+    public abstract TipeKamar getTipeKamar();
+    public void setHotel(Hotel hotel){
         this.hotel=hotel;
-    }
-    public void setID(int ID){
-        this.id=id;
     }
     public void setNomorKamar(String nomor_kamar){
         this.nomor_kamar=nomor_kamar;
@@ -73,11 +61,8 @@ public class Room{
     public void setStatusAvailable(boolean isAvailable){
         this.isAvailable=isAvailable;
     }
-    public void setCustomer(Customer customer){
-        this.customer=customer;
-    }
-    public void setDailyTariff(double dailyTariff){
-        dailyTariff=dailyTariff;
+    public void setDailyTariff(double dailytariff){
+        dailyTariff=dailytariff;
     }
     public void setStatusKamar(StatusKamar status_kamar){
         this.status_kamar=status_kamar;
@@ -88,9 +73,8 @@ public class Room{
     public void printData(){
         System.out.println("Nama hotel :" + hotel.getNama());
         System.out.println("Nomor Kamar :" + nomor_kamar);
-        System.out.println("Tersedia :" + isAvailable);
-        System.out.println("Pelanggan :" + customer.getNama());
         System.out.println("Harga :" + dailyTariff);
         System.out.println("Status Kamar :" + status_kamar);
+        System.out.println("Tipe Kamar :" + getTipeKamar());
     }
 }
