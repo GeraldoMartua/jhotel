@@ -41,12 +41,8 @@ public class Hotel
         this.lokasi = lokasi;
     }
     public String toString(){
-        return null;
-    }
-    public void printData(){
-        System.out.println("Hotel");
-        System.out.println("Nama hotel :" + nama);
-        System.out.println("Lokasi :" + lokasi.getDeskripsi());
-        System.out.println("Bintang :" + bintang);
+        return "\nNama Hotel    : " + nama +
+               "\nLokasi        : " + lokasi.getDeskripsi() +
+               "\nBintang       : " + bintang;
     }
 }

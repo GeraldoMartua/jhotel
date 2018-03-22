@@ -39,12 +39,8 @@ public class Lokasi
         deskripsiLokasi = deskripsi;
     }
     public String toString(){
-        return null;
-    }
-    public void printData(){
-        System.out.println("Lokasi");
-        System.out.println("Koordinat x :" + x_coord);
-        System.out.println("Koordinat y :" + y_coord);
-        System.out.println("Deskripsi :" + deskripsiLokasi);
+        return "\nKoordinat X       : " + x_coord +
+               "\nKoordinat Y       : " + y_coord +
+               "\nDeskripsi Lokasi  : " + deskripsiLokasi;
     }
 }

@@ -50,7 +50,10 @@ public class Customer
     public String getEmail(){
         return email;
     }
-    public Date getDOB(){
+    public Date getDOB(){ 
+        DateFormat formatter = new SimpleDateFormat("'DOB : 'dd MMMM yyyy");
+        String output = formatter.format(dob);
+        System.out.print(output);
         return dob;
     }
     public void setID(int id){
@@ -70,13 +73,18 @@ public class Customer
       this.dob = cal.getTime();
     }
     public String toString(){
-        return null;
-    }
-    public void printData (){
-        System.out.println("Customer");
-        System.out.println("ID :" + id);
-        System.out.println("Nama :" + nama);
-        System.out.println("DOB :" + dob);
+        if(DatabasePesanan.getPesanan(this) != null){
+            return "\nCustomer ID   : " + id +
+                   "\nName          : " + nama +
+                   "\nEmail         : " + email +
+                   "\nBooking order is in progress";
+                }
+        else{
+            return "\nCustomer ID   : " + id +
+                   "\nName          : " + nama +
+                   "\nEmail         : " + email +
+                   "\nDate of Birth : " + dob;
+                }
     }
     public static boolean validate(String email) {
     Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email);

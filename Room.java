@@ -71,13 +71,18 @@ public abstract class Room{
         this.pesan=pesan;
     }
     public String toString(){
-        return null;
-    }
-    public void printData(){
-        System.out.println("Nama hotel :" + hotel.getNama());
-        System.out.println("Nomor Kamar :" + nomor_kamar);
-        System.out.println("Harga :" + dailyTariff);
-        System.out.println("Status Kamar :" + status_kamar);
-        System.out.println("Tipe Kamar :" + getTipeKamar());
+        if(isAvailable){
+            return "\nNama Hotel    : " + hotel.getNama() +
+                   "\nTipe Kamar    : " + getTipeKamar() +
+                   "\nHarga         : " + dailyTariff +
+                   "\nStatus Kamar  : " + status_kamar;
+                }
+        else{
+            return "\nNama Hotel    : " + hotel.getNama() +
+                   "\nTipe Kamar    : " + getTipeKamar() +
+                   "\nHarga         : " + dailyTariff +
+                   "\nStatus Kamar  : " + status_kamar + 
+                   "\nPelanggan     : " + pesan.getPelanggan().getNama();
+                }
     }
 }

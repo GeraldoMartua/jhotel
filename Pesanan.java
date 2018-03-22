@@ -26,13 +26,20 @@ public class Pesanan
      * @param biaya         data biaya
      * @param pelanggan     data pelanggan
      */
-    public Pesanan(double jumlahHari, Customer pelanggan, Room kamar){
+    public Pesanan(double jumlahHari, Customer pelanggan, Room kamar, int tanggal, int bulan, int tahun){
         this.jumlahHari = jumlahHari;
         this.biaya = biaya;
         this.pelanggan = pelanggan;
         biaya = kamar.getDailyTariff() * jumlahHari;
+        tanggalPesan = new Date(tahun, bulan, tanggal);
     }
-    
+    public Pesanan(double jumlahHari, Customer pelanggan, Room kamar,Date tanggalPesan){
+        this.jumlahHari = jumlahHari;
+        this.biaya = biaya;
+        this.pelanggan = pelanggan;
+        biaya = kamar.getDailyTariff() * jumlahHari;
+        this.tanggalPesan = tanggalPesan;
+    }
     /**
      * Method Biaya
      * 
@@ -79,7 +86,7 @@ public class Pesanan
     public Room getRoom(){
         return kamar;
     }
-    public Date getTanggalPesan(){
+    public Date gettanggalPesan(){
         return tanggalPesan;
     }
     /**
@@ -129,7 +136,7 @@ public class Pesanan
     public void setRoom(Room kamar){
         this.kamar=kamar;
     }
-    public void setTanggalPesan(Date tanggalPesan){
+    public void settanggalPesan(Date tanggalPesan){
         this.tanggalPesan = tanggalPesan;
     }
     /**
@@ -138,15 +145,21 @@ public class Pesanan
      * untuk menampilkan biaya 
      */
     public String toString(){
-        return null;
-    }
-    
-    public void printData(){
-        System.out.println("Pesanan");
-        System.out.println("Status layanan diproses :"+ isDiproses);
-        System.out.println("Status layanan selesai :"+ isSelesai);
-        System.out.println("Nama pelanggan :"+ pelanggan.getNama());
-        System.out.println("Jumlah Hari :"+ jumlahHari);
-        System.out.println("Jumlah Biaya :"+ biaya);
+        String final_status  = "Kosong";
+        if(isDiproses == true && isSelesai == false){
+            final_status = "Diproses";
+        }
+        else if(isDiproses == false && isSelesai == false){
+            final_status = "Kosong";
+        }
+        else if(isDiproses == true && isSelesai == false){
+            final_status = "Selesai";
+        }
+        
+        return "Dibuat oleh " + pelanggan.getNama() +
+               ". Proses booking untuk " + kamar.getHotel() +
+               " kamar nomor " + kamar.getNomorKamar() +
+               " dengan tipe kamar yang diinginkan " + kamar.getTipeKamar() +
+               ". Status : " + final_status + ".";
     }
 }

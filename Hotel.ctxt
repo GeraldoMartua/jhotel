@@ -18,6 +18,4 @@ comment7.params=lokasi
 comment7.target=void\ setLokasi(Lokasi)
 comment8.params=
 comment8.target=java.lang.String\ toString()
-comment9.params=
-comment9.target=void\ printData()
-numComments=10
+numComments=9
