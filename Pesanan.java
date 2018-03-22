@@ -6,6 +6,7 @@
  */
 
 // Kelas ini digunakan untuk memasukkan input Pesanan
+import java.util.*;
 
 public class Pesanan
 {
@@ -17,6 +18,7 @@ public class Pesanan
     private boolean isDiproses;
     private boolean isSelesai;
     private Room kamar;
+    private Date tanggalPesan;
 
     /**
      * Method Pesanan
@@ -56,7 +58,7 @@ public class Pesanan
      * 
      * @return Diproses ke nilai Diproses
      */
-    public boolean getStatusDipesan(){
+    public boolean getStatusDiproses(){
         return isDiproses;
     }
     
@@ -77,7 +79,9 @@ public class Pesanan
     public Room getRoom(){
         return kamar;
     }
-    
+    public Date getTanggalPesan(){
+        return tanggalPesan;
+    }
     /**
      * Method Biaya
      * 
@@ -125,12 +129,18 @@ public class Pesanan
     public void setRoom(Room kamar){
         this.kamar=kamar;
     }
-    
+    public void setTanggalPesan(Date tanggalPesan){
+        this.tanggalPesan = tanggalPesan;
+    }
     /**
      * Method Biaya
      * 
      * untuk menampilkan biaya 
      */
+    public String toString(){
+        return null;
+    }
+    
     public void printData(){
         System.out.println("Pesanan");
         System.out.println("Status layanan diproses :"+ isDiproses);

@@ -38,6 +38,9 @@ public class Lokasi
     public void setDeskripsi(String deskripsi){
         deskripsiLokasi = deskripsi;
     }
+    public String toString(){
+        return null;
+    }
     public void printData(){
         System.out.println("Lokasi");
         System.out.println("Koordinat x :" + x_coord);

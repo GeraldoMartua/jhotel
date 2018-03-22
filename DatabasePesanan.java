@@ -11,19 +11,19 @@ public class DatabasePesanan
 {
     // Input Instance Variable 
     // Untuk mendeklarasikan variable 
-    private String[] list_pesanan;
-    public boolean addPesanan(Pesanan baru){
+    private static String[] list_pesanan;
+    public static boolean addPesanan(Pesanan baru){
         return false;
     }
-    public boolean removePesanan(Pesanan pesan){
+    public static boolean removePesanan(Pesanan pesan){
         return false;
     }
-    public Pesanan getPesanan(Customer cust){
+    public static Pesanan getPesanan(Customer cust){
         return null;
     }
-    public String[] getPesananDatabase(){
+    public static String[] getPesananDatabase(){
         return null;
     }
-    public void pesananDibatalkan(Pesanan pesan){
+    public static void pesananDibatalkan(Pesanan pesan){
     }
 }

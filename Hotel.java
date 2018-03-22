@@ -40,6 +40,9 @@ public class Hotel
     public void setLokasi(Lokasi lokasi){
         this.lokasi = lokasi;
     }
+    public String toString(){
+        return null;
+    }
     public void printData(){
         System.out.println("Hotel");
         System.out.println("Nama hotel :" + nama);
