@@ -32,11 +32,11 @@ public class Customer
     Pattern.compile("^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", Pattern.CASE_INSENSITIVE);
     
     public Customer(int id, String nama, int tahun, int bulan, int tanggal){
-        this.id = id;
+        this.id = DatabaseCustomer.getLastCustomerId()+1;
         this.nama = nama;
     }
     public Customer(int id, String nama, Date dob){
-        this.id = id;
+        this.id = DatabaseCustomer.getLastCustomerId()+1;
         this.nama = nama;
         this.dob = dob;
     }
@@ -72,7 +72,7 @@ public class Customer
       this.dob = cal.getTime();
     }
     public String toString(){
-        if(DatabasePesanan.getPesanan(this) != null){
+        if(DatabasePesanan.getPesananAktif(this) != null){
             return "\nCustomer ID   : " + id +
                    "\nName          : " + nama +
                    "\nEmail         : " + email +

@@ -6,82 +6,123 @@
  * @version 8 March 2018
  */
 public abstract class Room{
-    
-    // instance variables - replace the example below with your own
     private Hotel hotel;
     private String nomor_kamar;
-    private boolean isAvailable;
     protected double dailyTariff;
     private StatusKamar status_kamar;
-    private Pesanan pesan;
 
-    /**
-     * Constructor for objects of class Room
-     */
-    public Room(Hotel hotel, String nomor_kamar, boolean isAvailable, StatusKamar status_kamar)
+    //input status kamar tidak diperlukan jika statuskamar awal selalu vacant
+    public Room(Hotel hotelIn, String nomor_kamarIn)
     {
-        this.hotel=hotel;
-        this.nomor_kamar=nomor_kamar;
-        this.isAvailable=isAvailable;
-        this.status_kamar=status_kamar;
-        
+        hotel = hotelIn;
+        nomor_kamar = nomor_kamarIn;
+        status_kamar = StatusKamar.Vacant;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Method yang digunakan untuk mengambil data hotel.
+     * @return Hotel mengembalikan data hotel.
      */
-    public Hotel getHotel(){
+
+    public Hotel getHotel()
+    {
         return hotel;
     }
-    public String getNomorKamar(){
+
+    /**
+     * Method yang digunakan untuk mengambil data nomor kamar.
+     * @return String mengembalikan data nomor kamar.
+     */
+
+    public String getNomorKamar()
+    {
         return nomor_kamar;
     }
-    public boolean getStatusAvailable(){
-        return isAvailable;
-    }
-    public double getDailyTariff(){
+
+    /**
+     * Method yang digunakan untuk mengambil data harga kamar.
+     * @return double mengembalikan data harga kamar.
+     */
+
+    public double getDailyTariff()
+    {
         return dailyTariff;
     }
-    public StatusKamar getStatusKamar(){
+
+    /**
+     * Method yang digunakan untuk mengambil data status kamar.
+     * @return StatusKamar mengembalikan data status kamar.
+     */
+
+    public StatusKamar getStatusKamar()
+    {
         return status_kamar;
     }
-    public Pesanan getPesanan(){
-        return pesan;
-    }
+
+    //Method abstract
     public abstract TipeKamar getTipeKamar();
-    public void setHotel(Hotel hotel){
-        this.hotel=hotel;
+
+
+    /**
+     * Method yang digunakan untuk mengubah data hotel.
+     * @param hotelIn input yang dimasukkan untuk mengubah data hotel.
+     */
+
+    public void setHotel(Hotel hotelIn)
+    {
+        hotel = hotelIn;
     }
-    public void setNomorKamar(String nomor_kamar){
-        this.nomor_kamar=nomor_kamar;
+
+    /**
+     * Method yang digunakan untuk mengubah data nomor kamar.
+     * @param nomor_kamarIn input yang dimasukkan untuk mengubah data nomor kamar.
+     */
+
+    public void setNomorKamar(String nomor_kamarIn)
+    {
+        nomor_kamar = nomor_kamarIn;
     }
-    public void setStatusAvailable(boolean isAvailable){
-        this.isAvailable=isAvailable;
+
+    /**
+     * Method yang digunakan untuk mengubah data harga kamar.
+     * @param dailyTariffIn input yang dimasukkan untuk mengubah data harga kamar.
+     */
+
+    public void setDailyTariff(double dailyTariffIn)
+    {
+        dailyTariff = dailyTariffIn;
     }
-    public void setDailyTariff(double dailytariff){
-        dailyTariff=dailytariff;
+
+    /**
+     * Method yang digunakan untuk mengubah data status kamar.
+     * @param status_kamarIn input yang dimasukkan untuk mengubah data status kamar.
+     */
+
+    public void setStatusKamar(StatusKamar status_kamarIn)
+    {
+        status_kamar = status_kamarIn;
     }
-    public void setStatusKamar(StatusKamar status_kamar){
-        this.status_kamar=status_kamar;
-    }
-    public void setPesanan(Pesanan pesan){
-        this.pesan=pesan;
-    }
-    public String toString(){
-        if(isAvailable){
-            return "\nNama Hotel    : " + hotel.getNama() +
-                   "\nTipe Kamar    : " + getTipeKamar() +
-                   "\nHarga         : " + dailyTariff +
-                   "\nStatus Kamar  : " + status_kamar;
-                }
+
+    /**
+     * Method yang digunakan untuk mengembalikan data dari kelas Room dalam bentuk String.
+     */
+
+    public String toString()
+    {
+        if(DatabasePesanan.getPesanan(this) == null){
+            return "\nNama hotel  : " + hotel.getNama() +
+                    "\nTipe kamar  : " + getTipeKamar() +
+                    "\nHarga       : " + dailyTariff +
+                    "\nStatus kamar: " + status_kamar;
+        }
         else{
-            return "\nNama Hotel    : " + hotel.getNama() +
-                   "\nTipe Kamar    : " + getTipeKamar() +
-                   "\nHarga         : " + dailyTariff +
-                   "\nStatus Kamar  : " + status_kamar;
-                }
+            return "\nNama hotel  : " + hotel.getNama() +
+                    "\nTipe kamar  : " + getTipeKamar().toString() +
+                    "\nHarga       : " + dailyTariff +
+                    "\nStatus kamar: " + status_kamar +
+                    "\nPelanggan   : " + DatabasePesanan.getPesanan(this).getPelanggan().getNama();
+        }
     }
+
+
 }

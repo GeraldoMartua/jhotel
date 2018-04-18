@@ -9,7 +9,8 @@
 public class Hotel
 {
     // Input Instance Variable 
-    // Untuk mendeklarasikan variable 
+    // Untuk mendeklarasikan variable
+    private int ID;
     private String nama;
     private Lokasi lokasi;
     private int bintang;
@@ -22,6 +23,10 @@ public class Hotel
         this.lokasi=lokasi;
         this.bintang=bintang;
     }
+
+    public int getID() {
+        return ID;
+    }
     public int getBintang(){
         return bintang;
     }
@@ -30,6 +35,10 @@ public class Hotel
     }
     public Lokasi getLokasi(){
         return lokasi;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
     public void setBintang(int bintang){
         this.bintang = bintang;

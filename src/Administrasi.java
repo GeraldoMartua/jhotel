@@ -7,23 +7,19 @@
  */
 public class Administrasi
 {
-        /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public static void pesananDibatalkan(Room kamar){
-        kamar.getPesanan().setStatusSelesai(false);
-        kamar.getPesanan().setStatusDiproses(false);
-        kamar.getPesanan().setStatusAktif(false);
-        kamar.getPesanan().setRoom(null);
+        Pesanan kamarpesan = DatabasePesanan.getPesanan(kamar);
+        kamarpesan.setStatusSelesai(false);
+        kamarpesan.setStatusDiproses(false);
+        kamarpesan.setStatusAktif(false);
+        kamarpesan.setRoom(null);
     }
     public static void pesananSelesai(Room kamar){
-        kamar.getPesanan().setStatusSelesai(true);
-        kamar.getPesanan().setStatusDiproses(false);
-        kamar.getPesanan().setStatusAktif(false);
-        kamar.getPesanan().setRoom(null);
+        Pesanan kamarpesan = DatabasePesanan.getPesanan(kamar);
+        kamarpesan.setStatusSelesai(true);
+        kamarpesan.setStatusDiproses(false);
+        kamarpesan.setStatusAktif(false);
+        kamarpesan.setRoom(null);
     }
     public static void pesananDibatalkan(Pesanan pesan){
         pesan.setStatusAktif(false);
