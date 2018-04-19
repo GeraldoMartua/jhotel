@@ -14,8 +14,8 @@ public abstract class Room{
     //input status kamar tidak diperlukan jika statuskamar awal selalu vacant
     public Room(Hotel hotelIn, String nomor_kamarIn)
     {
-        hotel = hotelIn;
-        nomor_kamar = nomor_kamarIn;
+        this.hotel = hotelIn;
+        this.nomor_kamar = nomor_kamarIn;
         status_kamar = StatusKamar.Vacant;
     }
 

@@ -19,6 +19,7 @@ public class Hotel
      * Constructor for objects of class Hotel
      */
     public Hotel(String nama, Lokasi lokasi, int bintang){
+        this.ID = DatabaseHotel.getLastHotelId() + 1;
         this.nama=nama;
         this.lokasi=lokasi;
         this.bintang=bintang;
@@ -50,8 +51,9 @@ public class Hotel
         this.lokasi = lokasi;
     }
     public String toString(){
-        return "\nNama Hotel    : " + nama +
+        return "\nID            : " + ID +
+               "\nNama Hotel    : " + nama +
                "\nLokasi        : " + lokasi.getDeskripsi() +
-               "\nBintang       : " + bintang;
+               "\nBintang       : " + bintang + "\n";
     }
 }

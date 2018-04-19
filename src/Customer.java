@@ -21,7 +21,7 @@ import java.util.GregorianCalendar;
 public class Customer
 {
     // Input Instance Variable 
-    // Untuk mendeklarasikan variable 
+    // Untuk mendeklarasikan variable
     protected int id;
     protected String nama;
     protected String email;
@@ -31,14 +31,17 @@ public class Customer
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
     Pattern.compile("^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", Pattern.CASE_INSENSITIVE);
     
-    public Customer(int id, String nama, int tahun, int bulan, int tanggal){
+    public Customer(String nama, int tahun, int bulan, int tanggal, String email){
         this.id = DatabaseCustomer.getLastCustomerId()+1;
         this.nama = nama;
+        this.dob = new GregorianCalendar(tahun, bulan-1, tanggal).getTime();
+        this.email = email;
     }
-    public Customer(int id, String nama, Date dob){
+    public Customer(String nama, Date dob, String email){
         this.id = DatabaseCustomer.getLastCustomerId()+1;
         this.nama = nama;
         this.dob = dob;
+        this.email = email;
     }
     public int getID(){
         return id;

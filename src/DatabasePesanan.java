@@ -10,7 +10,7 @@ import java.util.ArrayList;
 // Kelas ini digunakan untuk memasukkan input Database Pesanan
 
 public class DatabasePesanan {
-    private static ArrayList<Pesanan> PESANAN_DATABASE;
+    private static ArrayList<Pesanan> PESANAN_DATABASE = new ArrayList<>();
     private static int LAST_PESANAN_ID = 0;
     public static ArrayList<Pesanan> getPesananDatabase(){
     return PESANAN_DATABASE;
@@ -18,12 +18,12 @@ public class DatabasePesanan {
     public static int getLastPesananId(){
         return LAST_PESANAN_ID;
     }
-    public static boolean addPesanan(Pesanan baru){
+    public static boolean addPesanan(Pesanan baru) throws PesananSudahAdaException{
         if(PESANAN_DATABASE.contains(baru))
         {
             if(baru.getStatusAktif())
             {
-                return false;
+                throw new PesananSudahAdaException(baru);
             }
             else
             {
@@ -68,31 +68,31 @@ public class DatabasePesanan {
         }
         return null;
     }
-    public static boolean removePesanan(Pesanan pesan){
-        for(Pesanan pesanan : PESANAN_DATABASE)
-        {
-            if(pesanan.equals(pesan))
-            {
-                if(pesanan.getRoom() != null)
+    public static boolean removePesanan(Customer pesan) throws PesananTidakDitemukanException
+    {
+        for (int i = 0; i < PESANAN_DATABASE.size(); i++) {
+            Pesanan tes = PESANAN_DATABASE.get(i);
+            if (tes.getPelanggan().equals(pesan)){
+                if(tes.getRoom() != null)
                 {
-                    Administrasi.pesananDibatalkan(pesanan);
+                    Administrasi.pesananDibatalkan(tes);
                 }
                 else
                 {
-                    if(pesanan.getStatusAktif())
+                    if(tes.getStatusAktif())
                     {
-                        pesanan.setStatusAktif(false);
+                        tes.setStatusAktif(false);
                     }
                 }
 
-                if(PESANAN_DATABASE.remove(pesanan))
+                if(PESANAN_DATABASE.remove(tes))
                 {
                     return true;
                 }
             }
         }
-        return false;
-        }
+        throw new PesananTidakDitemukanException(pesan);
+    }
     public static Pesanan getPesanan(Customer cust){
         return null;
     }

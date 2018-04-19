@@ -26,7 +26,7 @@ public class Pesanan
     {
         this.jumlahHari = jumlahHari;
         this.biaya = biaya;
-        biaya = kamar.getDailyTariff() * jumlahHari;
+        //biaya = kamar.getDailyTariff() * jumlahHari;
         isAktif = true;
         tanggalPesan = new Date();
         id = DatabasePesanan.getLastPesananId() + 1;

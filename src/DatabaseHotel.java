@@ -19,12 +19,11 @@ public class DatabaseHotel {
      * @param baru hotel baru
      *
      */
-    public static boolean addHotel(Hotel baru)
-    {
+    public static boolean addHotel(Hotel baru) throws HotelSudahAdaException {
         for (int i = 0; i < HOTEL_DATABASE.size(); i++) {
             Hotel tes = HOTEL_DATABASE.get(i);
-            if (tes.getID()==baru.getID()){
-                return false;
+            if (tes.getID()==baru.getID() || (tes.getNama().equals(baru.getNama()) && tes.getLokasi().equals(baru.getLokasi()))){
+                throw new HotelSudahAdaException(tes);
             }
         }
         LAST_HOTEL_ID=baru.getID();
@@ -48,7 +47,7 @@ public class DatabaseHotel {
      * @param id id hotel
      *
      */
-    public static boolean removeHotel(int id)
+    public static boolean removeHotel(int id) throws HotelTidakDitemukanException
     {
         for (int i = 0; i < HOTEL_DATABASE.size(); i++) {
             Hotel tes = HOTEL_DATABASE.get(i);
@@ -56,7 +55,11 @@ public class DatabaseHotel {
                 ArrayList<Room> KAMAR_TEST = DatabaseRoom.getRoomsFromHotel(tes);
                 for (int x = 0; x < KAMAR_TEST.size(); x++){
                     Room kamar = KAMAR_TEST.get(x);
-                    DatabaseRoom.removeRoom(tes, kamar.getNomorKamar());
+                    try {
+                        DatabaseRoom.removeRoom(tes, kamar.getNomorKamar());
+                    } catch (RoomTidakDitemukanException test){
+                        System.out.println(test.getPesan());
+                    }
                 }
                 if(HOTEL_DATABASE.remove(tes))
                 {
@@ -64,7 +67,7 @@ public class DatabaseHotel {
                 }
             }
         }
-        return false;
+        throw new HotelTidakDitemukanException(id);
     }
 
     public static Hotel getHotel(int id){

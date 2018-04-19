@@ -19,12 +19,11 @@ public class DatabaseRoom
      * @param baru room baru
      *
      */
-    public static boolean addRoom(Room baru)
-    {
+    public static boolean addRoom(Room baru) throws RoomSudahAdaException{
         for (int i = 0; i < ROOM_DATABASE.size(); i++) {
             Room tes = ROOM_DATABASE.get(i);
             if (tes.getHotel().equals(baru.getHotel())&&tes.getNomorKamar()==baru.getNomorKamar()){
-                return false;
+                throw new RoomSudahAdaException(tes);
             }
         }
         ROOM_DATABASE.add(baru);
@@ -91,8 +90,7 @@ public class DatabaseRoom
      * @param nomor_kamar nomer
      *
      */
-    public static boolean removeRoom(Hotel hotel, String nomor_kamar)
-    {
+    public static boolean removeRoom(Hotel hotel, String nomor_kamar) throws RoomTidakDitemukanException {
         for (int i = 0; i < ROOM_DATABASE.size(); i++) {
             Room tes = ROOM_DATABASE.get(i);
             if (tes.getHotel().equals(hotel)&&tes.getNomorKamar()==nomor_kamar){
@@ -107,7 +105,7 @@ public class DatabaseRoom
                 }
             }
         }
-        return false;
+        throw new RoomTidakDitemukanException(nomor_kamar, hotel);
     }
 
     /**
