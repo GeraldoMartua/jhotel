@@ -29,20 +29,23 @@ public class Customer {
     protected Date dob;
     private Pattern pattern;
     private Matcher matcher;
+    private String password;
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
     Pattern.compile("^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", Pattern.CASE_INSENSITIVE);
     
-    public Customer(String nama, int tanggal, int bulan, int tahun, String email){
+    public Customer(String nama, int tanggal, int bulan, int tahun, String email, String password){
         this.id = DatabaseCustomer.getLastCustomerId()+1;
         this.nama = nama;
         this.dob = new GregorianCalendar(tanggal, bulan-1, tahun).getTime();
         this.email = email;
+        this.password = password;
     }
-    public Customer(String nama, Date dob, String email){
+    public Customer(String nama, Date dob, String email, String password){
         this.id = DatabaseCustomer.getLastCustomerId()+1;
         this.nama = nama;
         this.dob = dob;
         this.email = email;
+        this.password = password;
     }
     public int getID(){
         return id;
@@ -52,6 +55,9 @@ public class Customer {
     }
     public String getEmail(){
         return email;
+    }
+    public String getPassword() {
+        return password;
     }
     public Date getDOB(){ 
         DateFormat formatter = new SimpleDateFormat("'DOB : 'dd MMMM yyyy");
@@ -70,6 +76,11 @@ public class Customer {
             this.email = email;
         }
     }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public void setDOB(int iYear, int iMonth, int iDay ){
       Calendar cal = Calendar.getInstance();
       cal.set(iYear, iMonth, iDay );

@@ -95,7 +95,7 @@ public class DatabaseRoom
         for (int i = 0; i < ROOM_DATABASE.size(); i++) {
             Room tes = ROOM_DATABASE.get(i);
             if (tes.getHotel().equals(hotel)&&tes.getNomorKamar()==nomor_kamar){
-                if(DatabasePesanan.getPesanan(tes) != null)
+                if(DatabasePesanan.getPesananAktif(tes) != null)
                 {
                     Administrasi.pesananDibatalkan(tes);
                 }

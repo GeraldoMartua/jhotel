@@ -7,19 +7,30 @@ package jhotel;
  */
 public class Administrasi {
 
+    public static void pesananDitugaskan(Pesanan pesan, Room kamar){
+        Pesanan kamarpesan = DatabasePesanan.getPesananAktif(kamar);
+        if (kamar.getStatusKamar() == StatusKamar.Vacant){
+            kamarpesan.setStatusAktif(true);
+            kamarpesan.setStatusDiproses(true);
+            kamarpesan.setStatusSelesai(false);
+        }
+        else
+            kamarpesan.setStatusAktif(false);
+            kamarpesan.setStatusDiproses(false);
+            kamarpesan.setStatusSelesai(false);
+    }
+
     public static void pesananDibatalkan(Room kamar){
-        Pesanan kamarpesan = DatabasePesanan.getPesanan(kamar);
+        Pesanan kamarpesan = DatabasePesanan.getPesananAktif(kamar);
         kamarpesan.setStatusSelesai(false);
         kamarpesan.setStatusDiproses(false);
         kamarpesan.setStatusAktif(false);
-        kamarpesan.setRoom(null);
     }
     public static void pesananSelesai(Room kamar){
-        Pesanan kamarpesan = DatabasePesanan.getPesanan(kamar);
+        Pesanan kamarpesan = DatabasePesanan.getPesananAktif(kamar);
         kamarpesan.setStatusSelesai(true);
         kamarpesan.setStatusDiproses(false);
         kamarpesan.setStatusAktif(false);
-        kamarpesan.setRoom(null);
     }
     public static void pesananDibatalkan(Pesanan pesan){
         pesan.setStatusAktif(false);

@@ -90,6 +90,15 @@ public class DatabaseCustomer
         throw new PelangganTidakDitemukanException(id);
     }
 
+    public static Customer getCustomerLogin(String email, String password) {
+        for (int i = 0; i < CUSTOMER_DATABASE.size(); i++) {
+            Customer tes = CUSTOMER_DATABASE.get(i);
+            if (tes.getEmail() == email || tes.getPassword() == password) {
+                return tes;
+            }
+        }
+        return null;
+    }
     /**
      * Metode untuk mengambil data di database
      *
