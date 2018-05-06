@@ -8,41 +8,33 @@ import static jhotel.StatusKamar.Vacant;
 public class JHotel {
 
     public static void main(String args[]){
-    Lokasi test1 = new Lokasi(12,13,"lok1");
-    Lokasi test2 = new Lokasi(69,69,"lok2");
-    Hotel hotel1 = new Hotel("Mantab",test1,5);
+    Lokasi lok1 = new Lokasi(100,100,"lok1");
+    Hotel hotel1 = new Hotel("Mantab",lok1,5);
     try {
         DatabaseHotel.addHotel(hotel1);
-    } catch (HotelSudahAdaException e){
+    } catch (HotelSudahAdaException e) {
         System.out.println(e.getPesan());
     }
-    Hotel hotel2 = new Hotel("Sip dah",test2,5);
+    Room Single1 = new SingleRoom(hotel1, "101", true, Vacant);
         try {
-        DatabaseHotel.addHotel(hotel2);
-    } catch (HotelSudahAdaException e){
-        System.out.println(e.getPesan());
-    }
-    Room A101 = new SingleRoom(hotel1, "A101", true, Vacant);
-        try {
-        DatabaseRoom.addRoom(A101);
+        DatabaseRoom.addRoom(Single1);
     } catch (RoomSudahAdaException test){
         System.out.println(test.getPesan());
     }
 
-    Room D404 = new PremiumRoom(hotel1, "404", true, Vacant);
+    Room Premium1 = new PremiumRoom(hotel1, "404", true, Vacant);
         try {
-        DatabaseRoom.addRoom(D404);
+        DatabaseRoom.addRoom(Premium1);
     } catch (RoomSudahAdaException test){
         System.out.println(test.getPesan());
     }
 
-    Room B202 = new DoubleRoom(hotel2, "202", true, Vacant);
+    Room Double1 = new DoubleRoom(hotel1, "202", true, Vacant);
         try {
-        DatabaseRoom.addRoom(B202);
+        DatabaseRoom.addRoom(Double1);
     } catch(RoomSudahAdaException test){
         System.out.println(test.getPesan());
     }
-
-        SpringApplication.run(JHotel.class, args);
+    SpringApplication.run(JHotel.class, args);
     }
 }

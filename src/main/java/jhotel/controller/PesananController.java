@@ -33,8 +33,7 @@ public class PesananController {
         }
         Administrasi.pesananDitugaskan(DatabasePesanan.getPesananAktif(DatabaseCustomer.getCustomer(id_customer)),
                 DatabaseRoom.getRoom(DatabaseHotel.getHotel(id_hotel),nomor_kamar));
-        pesanan.setTanggalPesan(new GregorianCalendar().getTime());
-        return pesanan;
+        return DatabasePesanan.getPesananAktif(DatabaseCustomer.getCustomer(id_customer));
     }
 
     @RequestMapping("/batalkanpesanan")

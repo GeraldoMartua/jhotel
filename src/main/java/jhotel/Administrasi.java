@@ -7,12 +7,12 @@ package jhotel;
  */
 public class Administrasi {
 
-    public static void pesananDitugaskan(Pesanan pesan, Room kamar){
-        Pesanan kamarpesan = DatabasePesanan.getPesananAktif(kamar);
+    public static void pesananDitugaskan(Pesanan kamarpesan, Room kamar){
         if (kamar.getStatusKamar() == StatusKamar.Vacant){
             kamarpesan.setStatusAktif(true);
             kamarpesan.setStatusDiproses(true);
             kamarpesan.setStatusSelesai(false);
+            DatabaseRoom.getRoom(kamar.getHotel(), kamar.getNomorKamar()).setStatusKamar(StatusKamar.Booked);
         }
         else
             kamarpesan.setStatusAktif(false);

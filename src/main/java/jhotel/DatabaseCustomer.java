@@ -92,9 +92,9 @@ public class DatabaseCustomer
 
     public static Customer getCustomerLogin(String email, String password) {
         for (int i = 0; i < CUSTOMER_DATABASE.size(); i++) {
-            Customer tes = CUSTOMER_DATABASE.get(i);
-            if (tes.getEmail() == email || tes.getPassword() == password) {
-                return tes;
+            Customer cust = CUSTOMER_DATABASE.get(i);
+            if (cust.getEmail().equals(email) && cust.getPassword().equals(password)){
+                return cust;
             }
         }
         return null;

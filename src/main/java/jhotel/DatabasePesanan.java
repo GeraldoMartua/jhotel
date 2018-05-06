@@ -59,7 +59,7 @@ public class DatabasePesanan {
     public static Pesanan getPesananAktif(Customer pelanggan){
         for(Pesanan pesanan : PESANAN_DATABASE)
         {
-            if(pesanan.getPelanggan().equals(pelanggan))
+            if(pesanan.getPelanggan() != null ? pesanan.getPelanggan().equals(pelanggan):false)
             {
                 if(pesanan.getStatusAktif())
                 {

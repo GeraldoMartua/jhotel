@@ -88,16 +88,16 @@ public class Customer {
     }
     public String toString(){
         if(DatabasePesanan.getPesananAktif(this) != null){
-            return "\nCustomer ID   : " + id +
-                   "\nName          : " + nama +
-                   "\nEmail         : " + email +
+            return "\nCustomer ID   : " + getID() +
+                   "\nName          : " + getNama() +
+                   "\nEmail         : " + getEmail() +
                    "\nBooking order is in progress";
                 }
         else{
-            return "\nCustomer ID   : " + id +
-                   "\nName          : " + nama +
-                   "\nEmail         : " + email +
-                   "\nDate of Birth : " + dob;
+            return "\nCustomer ID   : " + getID() +
+                   "\nName          : " + getNama() +
+                   "\nEmail         : " + getEmail() +
+                   "\nDate of Birth : " + getDOB();
                 }
     }
     public static boolean validate(String email) {

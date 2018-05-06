@@ -23,7 +23,7 @@ public class Pesanan
     private Room kamar;
     private Date tanggalPesan;
 
-    public Pesanan(double jumlahHari, Customer pelanggan)
+    public Pesanan(double jumlahHari, Customer customer)
     {
         this.jumlahHari = jumlahHari;
         this.biaya = biaya;
